@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Story Architect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Custom Scrollbar for global context */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090b; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46; 
+    }
+    
+    /* Shake animation for validation feedback */
+    @keyframes shake {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+      40%, 60% { transform: translate3d(4px, 0, 0); }
+    }
+    .shake {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    /* Fade-in animation for toasts/popups */
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fade-in-up 0.3s ease-out forwards;
+    }
+
+    /* Animation for glowing/pulsing effect during AI processing */
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 0.75;
+        filter: blur(8px);
+      }
+      50% {
+        opacity: 0.4;
+        filter: blur(12px);
+      }
+    }
+    .pulse-glow {
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            zinc: {
+              850: '#1f1f22',
+              950: '#09090b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@google/genai": "https://next.esm.sh/@google/genai@^1.30.0?external=rxjs",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^18.2.0?external=rxjs",
+    "@angular/compiler": "https://next.esm.sh/@angular/compiler@^18.2.0?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^18.2.0?external=rxjs",
+    "@angular/forms": "https://next.esm.sh/@angular/forms@^18.2.0?external=rxjs",
+    "@angular/common": "https://next.esm.sh/@angular/common@^18.2.0?external=rxjs"
+  }
+}
+</script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-indigo-500/30 selection:text-indigo-200">
+  <app-root></app-root>
+</body>
+</html>
